@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 MaterialButton(
                                   onPressed: () async {
-                                    method.launchURL("https://nomanali007.github.io/MyPortfolio");
+                                    method.launchURL("https://drive.google.com/file/d/1mL3zLPxBg7fd3VkRqGyzfpXZlSI6wfyw/view?usp=sharing");
                                   },
                                   child: AppBarTitle(
                                     text: 'Resume',
