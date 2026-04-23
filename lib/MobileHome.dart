@@ -341,9 +341,9 @@ class _MobileHomeState extends State<MobileHome> {
 
                 MobileProject(
                   ontab: () {
-                     method.launchURL("https://github.com/nomanali007");
+                     method.launchURL("https://play.google.com/store/apps/details?id=com.carbee.user.prod");
                   },
-                  image: "images/pic4.jpg",
+                  image: "images/carbeess.png",
                 ),
 
                 SizedBox(
@@ -352,9 +352,9 @@ class _MobileHomeState extends State<MobileHome> {
 
                 MobileProject(
                   ontab: () {
-                    method.launchURL("https://github.com/nomanali007");
+                    method.launchURL("https://play.google.com/store/apps/details?id=com.one.stop.tv&hl=en&gl=US");
                   },
-                  image: "images/pic5.jpg",
+                  image: "images/onestoptv.png",
                 ),
 
                 SizedBox(
@@ -493,7 +493,7 @@ class _MobileHomeState extends State<MobileHome> {
                       color: Color(0xffffA8B2D1),
                       onPressed: () {
                         method.launchURL(
-                            "https://github.com/nomanali007");
+                            "https://www.instagram.com/nomi_ali007/");
                       },
                       iconSize: 15.0,
                     ),
@@ -502,7 +502,7 @@ class _MobileHomeState extends State<MobileHome> {
                       color: Color(0xffffA8B2D1),
                       onPressed: () {
                         method.launchURL(
-                            "https://github.com/nomanali007");
+                            "https://www.facebook.com/nomi.ali.681769");
                       },
                       iconSize: 15.0,
                     ),

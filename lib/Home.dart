@@ -32,22 +32,22 @@ class _HomePageState extends State<HomePage> {
           Rect.fromLTRB(0, 0, 0, MediaQuery.of(context).padding.bottom),
       axis: scrollDirection,
     )..addListener(
-          () => _isAppBarExpanded
-          ? isExpaned != false
-          ? setState(
-            () {
-          isExpaned = false;
-          print('setState is called');
-        },
-      )
-          : {}
-          : isExpaned != true
-          ? setState(() {
-        print('setState is called');
-        isExpaned = true;
-      })
-          : {},
-    );
+        () => _isAppBarExpanded
+            ? isExpaned != false
+                ? setState(
+                    () {
+                      isExpaned = false;
+                      print('setState is called');
+                    },
+                  )
+                : {}
+            : isExpaned != true
+                ? setState(() {
+                    print('setState is called');
+                    isExpaned = true;
+                  })
+                : {},
+      );
     super.initState();
   }
 
@@ -71,170 +71,175 @@ class _HomePageState extends State<HomePage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: SingleChildScrollView(
-          physics: ScrollPhysics(),
-          primary: true,
-          scrollDirection: Axis.vertical,
-          child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
+            physics: ScrollPhysics(),
+            primary: true,
+            scrollDirection: Axis.vertical,
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
                 colors: [const Color(0xff780206), const Color(0xff061161)],
-              )
-          ),
-          child: Column(
-            children: [
-              //Mavigation Bar
-              Container(
-                height: size.height * 0.14,
-                width: size.width,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    children: [
-                      Spacer(),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: DefaultTabController(
-                            length: 5,
-                            child: TabBar(
-                              indicatorColor: Colors.transparent,
-                              onTap: (index) async {
-                                _scrollToIndex(index);
-                              },
-                              tabs: [
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'About',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Experience',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Project',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Contact Me',
-                                  ),
-                                ),
-                                MaterialButton(
-                                  onPressed: () async {
-                                    method.launchURL("https://drive.google.com/file/d/1mL3zLPxBg7fd3VkRqGyzfpXZlSI6wfyw/view?usp=sharing");
+              )),
+              child: Column(
+                children: [
+                  //Mavigation Bar
+                  Container(
+                    height: size.height * 0.14,
+                    width: size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        children: [
+                          Spacer(),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: DefaultTabController(
+                                length: 5,
+                                child: TabBar(
+                                  indicatorColor: Colors.transparent,
+                                  onTap: (index) async {
+                                    _scrollToIndex(index);
                                   },
-                                  child: AppBarTitle(
-                                    text: 'Resume',
-                                  ),
-                                  //color: Colors.pink,
+                                  tabs: [
+                                    Tab(
+                                      child: AppBarTitle(
+                                        text: 'About',
+                                      ),
+                                    ),
+                                    Tab(
+                                      child: AppBarTitle(
+                                        text: 'Experience',
+                                      ),
+                                    ),
+                                    Tab(
+                                      child: AppBarTitle(
+                                        text: 'Project',
+                                      ),
+                                    ),
+                                    Tab(
+                                      child: AppBarTitle(
+                                        text: 'Contact Me',
+                                      ),
+                                    ),
+                                    MaterialButton(
+                                      onPressed: () async {
+                                        method.launchURL(
+                                            "https://drive.google.com/file/d/1mL3zLPxBg7fd3VkRqGyzfpXZlSI6wfyw/view?usp=sharing");
+                                      },
+                                      child: AppBarTitle(
+                                        text: 'Resume',
+                                      ),
+                                      //color: Colors.pink,
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-
-              Row(
-                children: [
-                  //Social Icon
-                  Container(
-                    width: size.width * 0.09,
-                    height: size.height - 82,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            icon: FaIcon(FontAwesomeIcons.github),
-                            color: Color(0xffffA8B2D1),
-                            iconSize: 16.0,
-                            onPressed: () {
-                              method.launchURL("https://github.com/nomanali007");
-                            }),
-                        IconButton(
-                            icon: FaIcon(FontAwesomeIcons.linkedin),
-                            color: Color(0xffffA8B2D1),
-                            iconSize: 16.0,
-                            onPressed: () {
-                              method.launchURL("https://www.linkedin.com/in/nomanali007");
-                            }),
-                        IconButton(
-                          icon: FaIcon(FontAwesomeIcons.twitter),
-                          color: Color(0xffffA8B2D1),
-                          onPressed: () {
-                            method.launchURL(
-                                "https://github.com/nomanali007");
-                          },
-                          iconSize: 16.0,
-                        ),
-                        IconButton(
-                          icon: FaIcon(FontAwesomeIcons.instagram),
-                          color: Color(0xffffA8B2D1),
-                          onPressed: () {
-                            method.launchURL(
-                                "https://github.com/nomanali007");
-                          },
-                          iconSize: 16.0,
-                        ),
-                        IconButton(
-                          icon: FaIcon(FontAwesomeIcons.facebook),
-                          color: Color(0xffffA8B2D1),
-                          onPressed: () {
-                            method.launchURL(
-                                "https://github.com/nomanali007");
-                          },
-                          iconSize: 16.0,
-                        ),
-                        // IconButton(
-                        //     icon: Icon(Icons.call),
-                        //     color: Color(0xffffA8B2D1),
-                        //     iconSize: 16.0,
-                        //     onPressed: () {
-                        //       method.launchCaller();
-                        //     }),
-                        IconButton(
-                            icon: Icon(Icons.mail),
-                            color: Color(0xffffA8B2D1),
-                            iconSize: 16.0,
-                            onPressed: () {
-                              method.launchEmail();
-                            }),
-                      ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      height: size.height - 82,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: CustomScrollView(
-                          controller: _autoScrollController,
-                          slivers: <Widget>[
-                            SliverList(
-                                delegate: SliverChildListDelegate([
+
+                  Row(
+                    children: [
+                      //Social Icon
+                      Container(
+                        width: size.width * 0.09,
+                        height: size.height - 82,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                                icon: FaIcon(FontAwesomeIcons.github),
+                                color: Color(0xffffA8B2D1),
+                                iconSize: 16.0,
+                                onPressed: () {
+                                  method.launchURL(
+                                      "https://github.com/nomanali007");
+                                }),
+                            IconButton(
+                                icon: FaIcon(FontAwesomeIcons.linkedin),
+                                color: Color(0xffffA8B2D1),
+                                iconSize: 16.0,
+                                onPressed: () {
+                                  method.launchURL(
+                                      "https://www.linkedin.com/in/nomanali007");
+                                }),
+                            IconButton(
+                              icon: FaIcon(FontAwesomeIcons.twitter),
+                              color: Color(0xffffA8B2D1),
+                              onPressed: () {
+                                method.launchURL(
+                                    "https://github.com/nomanali007");
+                              },
+                              iconSize: 16.0,
+                            ),
+                            IconButton(
+                              icon: FaIcon(FontAwesomeIcons.instagram),
+                              color: Color(0xffffA8B2D1),
+                              onPressed: () {
+                                method.launchURL(
+                                    "https://www.instagram.com/nomi_ali007/");
+                              },
+                              iconSize: 16.0,
+                            ),
+                            IconButton(
+                              icon: FaIcon(FontAwesomeIcons.facebook),
+                              color: Color(0xffffA8B2D1),
+                              onPressed: () {
+                                method.launchURL(
+                                    "https://www.facebook.com/nomi.ali.681769");
+                              },
+                              iconSize: 16.0,
+                            ),
+                            // IconButton(
+                            //     icon: Icon(Icons.call),
+                            //     color: Color(0xffffA8B2D1),
+                            //     iconSize: 16.0,
+                            //     onPressed: () {
+                            //       method.launchCaller();
+                            //     }),
+                            IconButton(
+                                icon: Icon(Icons.mail),
+                                color: Color(0xffffA8B2D1),
+                                iconSize: 16.0,
+                                onPressed: () {
+                                  method.launchEmail();
+                                }),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: size.height - 82,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: CustomScrollView(
+                              controller: _autoScrollController,
+                              slivers: <Widget>[
+                                SliverList(
+                                    delegate: SliverChildListDelegate([
                                   Center(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         SizedBox(
                                           height: size.height * 0.08,
                                         ),
                                         ClipRRect(
-                                            borderRadius: BorderRadius.all(Radius.circular(80)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(80)),
                                             child: Image.asset(
-                                               fit: BoxFit.fitWidth,
+                                              fit: BoxFit.fitWidth,
                                               "images/noman.jpeg",
                                               width: 150,
                                               height: 150,
-                                            )
-                                        ),
+                                            )),
 
                                         SizedBox(
                                           height: 10.0,
@@ -251,12 +256,14 @@ class _HomePageState extends State<HomePage> {
                                           height: 4.0,
                                         ),
                                         Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 200),
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 200),
                                           child: Text(
                                             "Flutter Developer with 3+ years of experience building and shipping production-grade mobile applications for iOS, Android, and the web. Proficient in Firebase, AI integration, and automation.",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              color: Color(0xffCCD6F6).withValues(alpha: 0.6),
+                                              color: Color(0xffCCD6F6)
+                                                  .withValues(alpha: 0.6),
                                               fontWeight: FontWeight.w700,
                                               fontSize: 30,
                                             ),
@@ -268,15 +275,12 @@ class _HomePageState extends State<HomePage> {
 
                                         //get in tuch text
 
-
                                         SizedBox(
                                           height: size.height * 0.20,
                                         ),
                                       ],
                                     ),
                                   ),
-
-
 
                                   //About Me
                                   _wrapScrollTag(
@@ -288,10 +292,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   //Where I've Worked
-                                  _wrapScrollTag(
-                                      index: 1,
-                                      child:Work()
-                                  ),
+                                  _wrapScrollTag(index: 1, child: Work()),
                                   SizedBox(
                                     height: size.height * 0.10,
                                   ),
@@ -301,25 +302,27 @@ class _HomePageState extends State<HomePage> {
                                       index: 2,
                                       child: Column(
                                         children: [
-
                                           Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
-                                              Text(
-                                                "What I've build",
-                                                style: TextStyle(
-                                              fontSize: 26.0,
-                                              color: Color(0xffCCD6F6),
-                                              fontWeight: FontWeight.w700,
-                                              )),
-                                          SizedBox(
-                                            width: 26.0,
-                                          ),
-                                          Container(
-                                            width: MediaQuery.of(context).size.width / 4,
-                                            height: 0.75,
-                                            color: Color(0xff303C55),
-                                          ),
+                                              Text("What I've build",
+                                                  style: TextStyle(
+                                                    fontSize: 26.0,
+                                                    color: Color(0xffCCD6F6),
+                                                    fontWeight: FontWeight.w700,
+                                                  )),
+                                              SizedBox(
+                                                width: 26.0,
+                                              ),
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    4,
+                                                height: 0.75,
+                                                color: Color(0xff303C55),
+                                              ),
                                             ],
                                           ),
                                           SizedBox(
@@ -332,13 +335,12 @@ class _HomePageState extends State<HomePage> {
                                                   "https://apps.apple.com/au/app/carbee-au/id6474963233");
                                             },
                                             projectDesc:
-                                            "Large-scale car marketplace for iOS, Android, and Web. Includes Stripe payments, AI-powered car search, and analytics dashboards.",
+                                                "Large-scale car marketplace for iOS, Android, and Web. Includes Stripe payments, AI-powered car search, and analytics dashboards.",
                                             projectTitle: "CarBee Marketplace",
                                             tech1: "Flutter",
                                             tech2: "Stripe",
                                             tech3: "Firebase",
                                           ),
-
                                           FeatureProject(
                                             imagePath: "images/onestoptv.png",
                                             ontab: () {
@@ -346,13 +348,12 @@ class _HomePageState extends State<HomePage> {
                                                   "https://play.google.com/store/apps/details?id=com.one.stop.tv&hl=en&gl=US");
                                             },
                                             projectDesc:
-                                            "Live TV streaming app supporting M3U/M3U8 formats. Integrated Firebase Remote Config for OTA updates and AdMob for monetization.",
+                                                "Live TV streaming app supporting M3U/M3U8 formats. Integrated Firebase Remote Config for OTA updates and AdMob for monetization.",
                                             projectTitle: "OneStop TV",
                                             tech1: "Flutter",
                                             tech2: "Cubit",
                                             tech3: "REST APIs",
                                           ),
-
                                           FeatureProject(
                                             imagePath: "images/ielts.png",
                                             ontab: () {
@@ -360,21 +361,19 @@ class _HomePageState extends State<HomePage> {
                                                   "https://github.com/NomanAli007/ielts-mainfile");
                                             },
                                             projectDesc:
-                                            "Learning app with structured practice, timed exercises, and daily logging. Migrated from GetX to BLoC for scalability.",
+                                                "Learning app with structured practice, timed exercises, and daily logging. Migrated from GetX to BLoC for scalability.",
                                             projectTitle: "IELTS Exam Prep",
                                             tech1: "Flutter",
                                             tech2: "BLoC",
                                             tech3: "Firebase",
                                           ),
-
                                           FeatureProject(
                                             imagePath: "",
                                             ontab: () {
-                                              method.launchURL(
-                                                  "");
+                                              method.launchURL("");
                                             },
                                             projectDesc:
-                                            "End-to-end automation converting voice instructions into structured invoice data and generating PDF invoices.",
+                                                "End-to-end automation converting voice instructions into structured invoice data and generating PDF invoices.",
                                             projectTitle: "AI Invoice Agent",
                                             tech1: "LangChain",
                                             tech2: "OpenAI",
@@ -383,11 +382,10 @@ class _HomePageState extends State<HomePage> {
                                           FeatureProject(
                                             imagePath: "images/ss.png",
                                             projectDesc:
-                                            "Built my own portfolio in flutter",
+                                                "Built my own portfolio in flutter",
                                             projectTitle: "Personal Portfolio",
                                             tech1: "Flutter",
                                             tech2: "Dart",
-
                                           ),
                                         ],
                                       )),
@@ -404,12 +402,14 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Container(
                                           height: size.height * 0.68,
-                                          width: MediaQuery.of(context).size.width -
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
                                               100,
                                           // color: Colors.orange,
                                           child: Column(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                             children: [
                                               CustomText(
                                                 text: "Get In Touch",
@@ -428,7 +428,8 @@ class _HomePageState extends State<HomePage> {
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       color: Colors.white
-                                                          .withValues(alpha: 0.4),
+                                                          .withValues(
+                                                              alpha: 0.4),
                                                       letterSpacing: 0.75,
                                                       fontSize: 17.0,
                                                     ),
@@ -440,25 +441,27 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  method.launchEmail();
+                                                  method.launchGmailWeb();
                                                 },
                                                 child: Card(
                                                   elevation: 4.0,
                                                   color: Colors.black,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
-                                                    BorderRadius.circular(6.0),
+                                                        BorderRadius.circular(
+                                                            6.0),
                                                   ),
                                                   child: Container(
-                                                    margin: EdgeInsets.all(0.85),
+                                                    margin:
+                                                        EdgeInsets.all(0.85),
                                                     height: size.height * 0.09,
                                                     width: size.width * 0.10,
                                                     alignment: Alignment.center,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xff83a0e0),
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          6.0),
+                                                          BorderRadius.circular(
+                                                              6.0),
                                                     ),
                                                     child: Padding(
                                                       padding: const EdgeInsets
@@ -482,16 +485,20 @@ class _HomePageState extends State<HomePage> {
                                         //Footer
                                         Container(
                                           alignment: Alignment.center,
-                                          height:
-                                          MediaQuery.of(context).size.height /
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
                                               6,
-                                          width: MediaQuery.of(context).size.width -
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
                                               100,
                                           //color: Colors.white,
                                           child: Text(
                                             "Designed & Built by Noman Ali",
                                             style: TextStyle(
-                                              color: Colors.white.withValues(alpha: 0.4),
+                                              color: Colors.white
+                                                  .withValues(alpha: 0.4),
                                               letterSpacing: 1.75,
                                               fontSize: 14.0,
                                             ),
@@ -501,36 +508,36 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ])),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.07,
-                    height: MediaQuery.of(context).size.height - 82,
-                    //color: Colors.orange,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 45,
-                          child: Text(
-                            "noman.alii2026@gmail.com",
-                            style: TextStyle(
-                              color: Colors.grey.withValues(alpha: 0.6),
-                              letterSpacing: 3.0,
-                              fontWeight: FontWeight.w700,
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.07,
+                        height: MediaQuery.of(context).size.height - 82,
+                        //color: Colors.orange,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 45,
+                              child: Text(
+                                "noman.alii2026@gmail.com",
+                                style: TextStyle(
+                                  color: Colors.grey.withValues(alpha: 0.6),
+                                  letterSpacing: 3.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        )));
+            )));
   }
 }
